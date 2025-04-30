@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peso Pluma | Página Oficial</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-bottom: 3px solid #00ff99;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #00ff99;
+    }
+
+    .hero {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/5/5b/Peso_Pluma_2023.jpg') no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h2 {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .menu-buttons {
+      margin: 30px 0;
+    }
+
+    button {
+      background-color: #00ff99;
+      color: #121212;
+      border: none;
+      padding: 15px 25px;
+      margin: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #00cc77;
+    }
+
+    .section {
+      display: none;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .section img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .back-button {
+      display: block;
+      margin: 20px auto 0;
+      background-color: #ffffff;
+      color: #121212;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    a {
+      color: #00ff99;
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      padding: 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid #00ff99;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero h2 {
+        font-size: 1.2rem;
+        padding: 10px;
+      }
+
+      button {
+        width: 80%;
+      }
+
+      .section {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Peso Pluma</h1>
+  </header>
+
+  <div class="hero">
+    <h2>La Nueva Cara del Regional Mexicano</h2>
+  </div>
+
+  <div class="menu-buttons" id="menu">
+    <button onclick="showSection('biografia')">📖 Ver Biografía</button>
+    <button onclick="showSection('musica')">🎵 Ver Música</button>
+    <button onclick="showSection('contacto')">📱 Ver Contacto</button>
+  </div>
+
+  <!-- SECCIÓN BIOGRAFÍA -->
+  <div id="biografia" class="section">
+    <h3>Biografía</h3>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Peso_Pluma_2023_%28cropped%29.jpg/640px-Peso_Pluma_2023_%28cropped%29.jpg" alt="Peso Pluma en concierto" />
+    <p>Peso Pluma, nacido como Hassan Emilio Kabande Laija, es una de las figuras más influyentes del regional mexicano moderno. Su estilo único mezcla corridos tumbados con música urbana.</p>
+    <button class="back-button" onclick="goBack()">← Regresar al Menú</button>
+  </div>
+
+  <!-- SECCIÓN MÚSICA -->
+  <div id="musica" class="section">
+    <h3>Discografía Destacada</h3>
+    <img src="https://i.scdn.co/image/ab6761610000e5ebc3996ee7b94b0b78cf06e2c1" alt="Álbum Génesis de Peso Pluma" />
+    <ul>
+      <li>🎤 <strong>Éxito:</strong> "Ella Baila Sola"</li>
+      <li>💿 <strong>Álbum:</strong> "GÉNESIS" (2023)</li>
+      <li>🤝 <strong>Colaboraciones:</strong> Bizarrap, Natanael Cano, Junior H</li>
+    </ul>
+    <button class="back-button" onclick="goBack()">← Regresar al Menú</button>
+  </div>
+
+  <!-- SECCIÓN CONTACTO -->
+  <div id="contacto" class="section">
+    <h3>Contacto y Redes Sociales</h3>
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Íconos de redes sociales" style="width:100px;" />
+    <p>Sigue a Peso Pluma en sus redes sociales:</p>
+    <ul>
+      <li><a href="https://instagram.com/pesopluma" target="_blank">📸 Instagram</a></li>
+      <li><a href="https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X" target="_blank">🎶 Spotify</a></li>
+      <li><a href="https://www.youtube.com/@PesoPluma" target="_blank">▶️ YouTube</a></li>
+    </ul>
+    <button class="back-button" onclick="goBack()">← Regresar al Menú</button>
+  </div>
+
+  <footer>
+    &copy; 2025 Página no oficial de Peso Pluma. Diseñada con cariño para fans del regional mexicano.
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.getElementById('menu').style.display = 'none';
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function goBack() {
+      document.getElementById('menu').style.display = 'block';
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    }
+  </script>
+
+</body>
+</html>
